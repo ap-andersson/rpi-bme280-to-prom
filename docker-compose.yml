@@ -1,0 +1,13 @@
+
+services:
+  rpi-bme280-to-prom:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: rpi-bme280-to-prom
+    environment:
+      - GPIOZERO_PIN_FACTORY=rpigpio
+    ports:
+      - 8000:8000
+    privileged: true
+    restart: unless-stopped
